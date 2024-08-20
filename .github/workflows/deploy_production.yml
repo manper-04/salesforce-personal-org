@@ -18,7 +18,7 @@ jobs:
       - name: Deploy on ${{ vars.Production }}
         uses: jawills/sf-deploy@v1.0
         with:
-          SFDX_AUTH_URL`: ${{ secrets.SFDX_AUTH_URL }}
+          SFDX_AUTH_URL`: 'force://PlatformCLI::5Aep861j70kdjF1ZXOFgJP1bDw2gqeHDm_U_MqC7Ykeimyb5IMxN1OOWdcy4ZuSUnVa7PQ6WtizWLnvzpEr663b@mperez36-dev-ed.my.salesforce.com'
           DRY_RUN: false
           TEST_LEVEL: RunLocalTests
 
