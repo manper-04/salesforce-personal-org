@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Deploy on ${{ vars.ENVIRONMENT_NAME }}
+      - name: Deploy on ${{ vars.Production }}
         uses: jawills/sf-deploy@v1.0
         with:
           SFDX_AUTH_URL`: ${{ secrets.SFDX_AUTH_URL }}
