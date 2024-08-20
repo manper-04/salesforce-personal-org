@@ -1,0 +1,114 @@
+<template>
+    <div class="slds-grid slds-grid_vertical test " style={getBackgroundImage}>
+        <center><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1280px-International_Pok%C3%A9mon_logo.svg.png" width="30%" alt=""></center>
+        <div class="slds-col">
+            <lightning-input type="text" onchange={handleOnChange} label="Type the number or name of Pokemon"></lightning-input>
+        </div>
+        
+        <template if:true={showSpinner}>
+        <div>
+            <div class="demo-only demo-only_viewport" style="height:6rem;position:relative">
+                <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+                <span class="slds-assistive-text">Loading</span>
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+                </div>
+                </div>
+        </div>
+        </template>
+        <template if:false={showSpinner}>
+        <div class="slds-col" style="margin-top:20px;margin-bottom:20px">
+            <lightning-button variant="brand" label="Buscar" disabled={disabledButton} onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+            <lightning-button variant="" label="Aleatorio" onclick={handleClickRandom} class="slds-m-left_x-small"></lightning-button>
+        </div>
+        <div class="slds-col">
+            <template if:true={showDetails}>
+                <div class="slds-col" style="margin-top:20px;margin-bottom:20px">
+                    <center><span style="font-weight:bold">#{pokeId} - {pokeName}</span></center>
+                </div>
+                <center>
+                <img  src={spriteFront} width="30%" alt="" style="margin-right:20px">
+                <img src={spriteBack} width="10%" alt=""></center>
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered" style="margin-top:20px;">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Account Name">Type</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Close Date">HP</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Stage">Attack</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Confidence">Defense</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Amount">Sp. Atk</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Contact">Sp. Def</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Contact">Speed</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="slds-hint-parent">
+                            <td data-label="Account Name">
+                                <div class="slds-truncate" title="Cloudhub">{pokeType}</div>
+                            </td>
+                            <td data-label="Account Name">
+                                <div class="slds-truncate" title="Cloudhub">{pokeHP}</div>
+                            </td>
+                            <td data-label="Account Name">
+                                <div class="slds-truncate" title="Cloudhub">{pokeAttack}</div>
+                            </td>
+                            <td data-label="Account Name">
+                                <div class="slds-truncate" title="Cloudhub">{pokeDefense}</div>
+                            </td>
+                            <td data-label="Account Name">
+                                <div class="slds-truncate" title="Cloudhub">{pokeSpAtk}</div>
+                            </td>
+                            <td data-label="Account Name">
+                                <div class="slds-truncate" title="Cloudhub">{pokeSpDef}</div>
+                            </td>
+                            <td data-label="Account Name">
+                                <div class="slds-truncate" title="Cloudhub">{pokeSpeed}</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    </table>
+                    <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered" aria-label="Example table of Opportunities with vertical borders" style="margin-top:20px">
+                        <thead>
+                            <tr class="slds-line-height_reset">
+                                <th class="" scope="col">
+                                    <div class="slds-truncate" title="Opportunity Name">Ability 1</div>
+                                </th>
+                                <th class="" scope="col">
+                                    <div class="slds-truncate" title="Account Name">Ability 2</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="slds-hint-parent">
+                                <td data-label="Account Name">
+                                    <div class="slds-truncate" title="Cloudhub">{ability1}</div>
+                                </td>
+                                <td data-label="Account Name">
+                                    <div class="slds-truncate" title="Cloudhub">{ability2}</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                        </table>
+            </template>
+            <template if:true={showError}>
+                <span style="color:red;font-weight: bold">Ha ocurrido un error intentelo de nuevo...</span>
+            </template>
+
+        </div>
+        </template>
+      </div>
+</template>

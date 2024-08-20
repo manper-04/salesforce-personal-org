@@ -1,0 +1,29 @@
+.ssp-badge-green {
+    color: #0b3106;
+    background: #c4e7bc;
+    border-radius: 7px;
+  }
+  
+  .ssp-badge-orange {
+    color: #292921;
+    background: #FFCB6E;
+    border-radius: 7px;
+  }
+  
+  .ssp-badge-grey {
+    color: #324676;
+    background: #E0DBDA;
+    border-radius: 7px;
+  }
+  
+  .ssp-badge-yellow {
+    color: #5B2C02;
+    background: #DCC594;
+    border-radius: 7px;
+  }
+  
+  .ssp-badge-blue {
+    color: white;
+    background: #6A89CF;
+    border-radius: 7px;
+  }

@@ -1,0 +1,11 @@
+<template>
+    <c-custom-data-table
+        key-field="Id"
+        data={accounts}
+        columns={columns}
+        show-row-number-column
+        onsort={handleSort} 
+        sorted-by={sortedBy} 
+        sorted-direction={sortDirection}>
+    </c-custom-data-table>
+</template>

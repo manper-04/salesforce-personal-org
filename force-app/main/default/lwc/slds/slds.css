@@ -1,0 +1,9 @@
+.headerClass{
+    background: -webkit-linear-gradient(70deg, #002B5B  30%, rgba(0,0,0,0) 30%), -webkit-linear-gradient(30deg, #2B4865 60%, #256D85 60%);
+    background: -o-linear-gradient(70deg, #002B5B  30%, rgba(0,0,0,0) 30%), -o-linear-gradient(30deg, #2B4865 60%, #256D85 60%);
+    background: -moz-linear-gradient(70deg, #002B5B  30%, rgba(0,0,0,0) 30%), -moz-linear-gradient(30deg, #2B4865 60%, #256D85 60%);
+    background: linear-gradient(70deg, #002B5B  30%, rgba(0,0,0,0) 30%), linear-gradient(30deg, #2B4865 60%, #256D85 60%);
+     height: 100px;
+     border-radius: 0.25em;
+     color:White;
+}

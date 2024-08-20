@@ -1,0 +1,86 @@
+.mainContainer{
+	margin-left: 22%;
+	margin-right: 22%;
+	border: 1px solid #000000!important;
+    background: #2574a9;
+}
+
+
+.slds-text-title_caps{
+	color: white !important;
+}
+
+.slds-form-element__label{
+	color:white !important;
+}
+
+
+
+
+@media only screen and (min-width: 320px) and (max-width: 480px){
+    .mainContainer{
+        width: 100%;
+        margin-left: 1%;
+        
+    }
+    
+    .demo{
+        width: 70% !important;
+    }
+    
+    .inputphone .slds-form-element__control{
+        margin-top: 4.4vw !important;
+    }
+    
+    .inputtarjeta .slds-form-element__control{
+        margin-top: 5.2vw !important;
+    }
+    
+    .inputfecha .slds-form-element__control{
+        margin-top: 9.8vw !important;
+    }
+}
+
+@media only screen and (width: 414px){
+    .inputhora .slds-form-element__control{
+        margin-top: 5vw !important;
+    }
+}
+
+@media only screen and (width: 411px){
+    .inputhora .slds-form-element__control{
+        margin-top: 5vw !important;
+    }
+}
+
+@media only screen and (width: 320px){
+    .inputhora .slds-form-element__control{
+        margin-top: 5vw !important;
+    }
+    
+    .inputfecha .slds-form-element__control{
+        margin-top: 11vw !important;
+    }
+    
+    .inputphone .slds-form-element__control{
+        margin-top: 5.2vw !important;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px){
+    .mainContainer{
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+}
+@media only screen and (min-width: 446px) and (max-width: 480px){
+    .inputphone .slds-form-element__control{
+        margin-top: 0vw !important;
+    }
+}
+@media only screen and (min-width: 481px) and (max-width: 767px){
+    .mainContainer{
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+}

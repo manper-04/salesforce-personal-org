@@ -1,0 +1,19 @@
+<template>
+    <div class="slds-align_absolute-center">
+        <template lwc:if={showActive}> 
+            <span class="slds-p-horizontal_medium ssp-badge-green">{value}</span>
+        </template>
+        <template lwc:elseif={showPlanned}>
+            <span class="slds-p-horizontal_medium ssp-badge-orange">{value}</span>
+        </template>
+        <template lwc:elseif={showPast}>
+            <span class="slds-p-horizontal_medium ssp-badge-grey">{value}</span>
+        </template>
+        <template lwc:elseif={showInReview}>
+            <span class="slds-p-horizontal_medium ssp-badge-yellow">{value}</span>
+        </template>
+        <template lwc:elseif={showFinalized}>
+            <span class="slds-p-horizontal_medium ssp-badge-blue">{value}</span>
+        </template>
+    </div>
+</template>

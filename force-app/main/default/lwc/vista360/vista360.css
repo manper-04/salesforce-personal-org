@@ -1,0 +1,26 @@
+.data{
+   margin-left: 7%;
+   border-radius: 25px;
+   border: 2px solid #0056a4;
+   background-color: #0056a4;
+   margin-top:3%;
+   padding:7%;
+   height: 30em;
+   color:white;
+   
+}
+
+
+
+.txt{
+  color: #FFFFFF;
+  font-weight: bold;
+  
+}
+
+img{
+    margin-bottom:3%;
+    margin-top:3%;
+    
+
+}

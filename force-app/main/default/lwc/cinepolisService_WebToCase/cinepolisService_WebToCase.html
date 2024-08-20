@@ -1,0 +1,136 @@
+<template>
+    <div class="slds-m-around_xx-large mainContainer">	
+		<div class="demo" style="width:85%;">
+			<div class="slds-form slds-form_compound slds-m-around_xx-large">
+				<fieldset class="slds-form-element">
+					<legend class="slds-form-element__label slds-text-title_caps colorFont">Contacto</legend>
+					<div class="slds-form-element__group">
+						<div class="slds-form-element__row">
+							<div class="slds-form-element slds-size_1-of-1">
+								<lightning-input class="input" label="Nombre" onchange={handleFirstName} value={firstName} required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" message-when-value-missing="Completar este campo." message-when-pattern-mismatch="Solo se permite usar letras."></lightning-input>
+							</div>
+                        </div>
+                        <div class="slds-form-element__row">
+							<div class="slds-form-element slds-size_1-of-1">
+								<lightning-input label="Apellido Paterno" aura:id="contactform" onchange={handleLastName} value={lastName} required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" message-when-value-missing="Completar este campo." message-when-pattern-mismatch="Solo se permite usar letras." ></lightning-input>
+							</div>
+                        </div>
+                        <div class="slds-form-element__row">
+                        	<div class="slds-form-element slds-size_1-of-1">
+                                <lightning-input label="Apellido Materno" aura:id="contactform" onchange={handleMotherLastName} value={motherLastName} required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" message-when-value-missing="Completar este campo." message-when-pattern-mismatch="Solo se permite usar letras." ></lightning-input>
+                            </div>
+						</div>
+						<div class="slds-form-element__row">
+							<div class="slds-form-element slds-size_1-of-1">
+								<lightning-input type="email" aura:id="contactform" label="Email" name="email" onchange={handleEmail} value={email} required pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" message-when-value-missing="Completar este campo." message-when-pattern-mismatch="Los datos ingresados no coinciden con el patron de email permitido"></lightning-input>
+							</div>
+						</div>
+					</div>
+					<div class="slds-form-element__group">
+						<div class="slds-form-element__row">
+							<div class="slds-form-element slds-size_1-of-2">
+                                <lightning-input type="date"   label="Fecha de Nacimiento"  onchange={handleBirthdate} value={birthdate} max={today} ></lightning-input>
+                                
+							</div>
+							<div class="slds-form-element slds-size_1-of-2">
+								<lightning-input   type="tel" label="Telefono" name="phone" onchange={handlePhone} value={phone} placeholder="E.g. 5558889999 (10 dígitos)" minlength="10" maxlength="10" required pattern="[0-9]{10}" class="inputphone" message-when-pattern-mismatch="Los datos ingresados no coinciden con el patron de número de teléfono permitido" message-when-value-missing="Completar este campo."></lightning-input>
+							</div>
+						</div>
+					</div>
+                </fieldset>
+                <fieldset class="slds-form-element">
+					<legend class="slds-form-element__label slds-text-title_caps">Datos del Cine</legend>
+					<div class="slds-form-element__group">
+                        <div class="slds-form-element__row">
+                            <div class="slds-form-element slds-size_1-of-2">
+                                <lightning-combobox name="selectItem" label="Ciudad" placeholder="--- SELECT ---" onchange={handleCity} value={city}
+                                     options={citiesOptions} required message-when-value-missing="Completar este campo." >
+                                </lightning-combobox>
+                            </div>
+                            
+                            <div class="slds-form-element slds-size_1-of-2">
+                                <lightning-combobox name="selectItem" label="Cine" placeholder="--- SELECT ---" onchange={handleTheater} value={theater}
+                                     options={mTheaters}  required message-when-value-missing="Completar este campo.">
+                                </lightning-combobox>
+                                
+                            </div>
+                        </div>
+                        <div class="slds-form-element__row">
+							<div class="slds-form-element slds-size_1-of-1">
+                                <lightning-combobox name="selectItem" aura:id="contactform" label="Tipo de Comentario" onchange={typeOfCommentSelect} value={typeOfComment} options={typeOfCommentOptions}  required message-when-value-missing="Completar este campo.">	
+                                </lightning-combobox>
+							</div>
+                        </div>
+                         <!-- SELECT: QUEJAS -->
+                         <template if:true={typeOfCommentQuejasAreaBoolean}>
+                            <div class="slds-form-element__row">
+                                <div class="slds-form-element slds-size_1-of-1">
+                                    <lightning-combobox name="selectItem" aura:id="contactform" label="Area de queja:"  onchange={typeOfCommentQuejasAreaSelect} options={typeOfCommentAreaOptions} value={typeOfCommentQuejasArea}  required message-when-value-missing="Completar este campo.">
+                                        
+                                    </lightning-combobox>
+                                </div>
+                            </div>
+                        </template>
+                        <!-- SELECT: SUGERENCIAS  INFORMACION  FELICITACION-->
+                        <template if:true={typeOfCommentSugerenciasInformacionFelicitacionAreaBoolean}>
+                        <div class="slds-form-element__row">
+                            <div class="slds-form-element slds-size_1-of-1">
+                                <lightning-combobox  name="selectItem" aura:id="contactform" label="Area:" onchange={typeOfCommentSugerenciasInformacionFelicitacionAreaSelect}  options={areaSugerenciasFelicitacionesDudasOptions}  required message-when-value-missing="Completar este campo.">
+                                </lightning-combobox>
+                            </div>
+                        </div>
+                        </template>
+                    <!-- SELECT:QUEJA ATENCION A CLIENTES -->
+                    <template if:true={complainTypeBoolean}>
+                        <div class="slds-form-element__row">
+                            <div class="slds-form-element slds-size_1-of-1">
+                                <lightning-combobox  name="selectItem" aura:id="contactform" label="Tipo de Queja" onchange={complainTypeQuejasSelect} value={complainTypeQuejas} options={complainTypeQuejasOptions}  required message-when-value-missing="Completar este campo.">  
+                                </lightning-combobox>
+                            </div>
+                        </div>
+                    </template>
+                     <template if:true={dataCardBoolean}>
+                        <div class="slds-form-element__row slds-grid slds-wrap">
+                            <div class="slds-form-element slds-small-size_1-of-1 slds-medium-size_1-of-3">
+                                <lightning-input pattern="[0-9]{4}" name="" label="Ultimos 4 digitos de Tarjeta"  placeholder="ºººº" class="inputtarjeta" minlength="4" maxlength="4" onchange={handleDigitCard} value={digitCard} required message-when-value-missing="Completar este campo." message-when-pattern-mismatch="Este campo tiene que ser de cuatro dígitos y sólo números." ></lightning-input>
+                            </div>
+                             <div class="slds-form-element slds-small-size_1-of-1 slds-medium-size_1-of-3">
+                                <lightning-input name="dateOfPurchase" onchange={handleDateOfPurchase} value={dateOfPurchase} type="date" label="Fecha de compra" class="inputfecha" aura:id="pday" required message-when-value-missing="Completar este campo." max={todayP} ></lightning-input>
+                            </div>
+                             <div class="slds-form-element slds-small-size_1-of-1 slds-medium-size_1-of-3">
+                                 <lightning-input type="time" name="input1" label="Hora estimada de compra" onchange={handleHourOfPurchase} value={hourOfPurchase} class="inputhora" required message-when-value-missing="Completar este campo."></lightning-input>
+                            </div>
+                        </div>
+                    </template>
+                    
+                    <div class="slds-form-element__row">
+                        <div class="slds-form-element slds-size_1-of-1">
+                            <div class="slds-form-element__control">
+                                <lightning-textarea label="Comentarios" name="commentariesTextArea" aura:id="contactform" onchange={handleCommentaries} value={commentaries} maxlength="255" required message-when-value-missing="Completar este campo." ></lightning-textarea>
+                            </div>
+                        </div>
+                    </div> 
+    
+                    <div class="slds-align_absolute-center slds-p-around_large ">
+                        <lightning-button label="Enviar" title="Destructive action" onclick={handleClick} class="slds-m-left_x-small" variant="destructive"></lightning-button>
+                    </div>
+                    <template for:each={mapData} for:item="mapKey">
+                      <tr key={mapKey.key}>
+                          <th scope="col">
+                              <div title={mapKey.key}>{mapKey.key}</div>
+                          </th>
+                          <th scope="col">
+                              <div title={mapKey.value}>{mapKey.value}</div>
+                          </th>
+                      </tr>
+                  </template>
+                    <div class="slds-form-element">
+                    </div>
+                </div>
+            </fieldset>	
+			</div>
+		</div>
+    </div>
+ 
+    
+</template>
